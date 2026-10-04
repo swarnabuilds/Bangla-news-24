@@ -1,5 +1,6 @@
 import MaainNews from "@/components/MaainNews";
 import Marquee from "@/components/Marquee";
+import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
 
 type News = {
@@ -29,11 +30,12 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+
       <Marquee />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 container mx-auto py-6 px-4">
         {/* news section */}
-        <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+        <div className="lg:col-span-2 bg-white rounded-lg border border-gray-100 p-6">
           <MaainNews news={mainNews} />
 
 
@@ -61,14 +63,15 @@ export default async function Home() {
         </div>
 
 
-
-
         {/* most read section */}
         <div className="lg:col-span-1 bg-white rounded-lg shadow-sm border border-gray-100 p-6 h-fit">
           <div className="border-b-2 border-red-600 pb-2 mb-6 w-full flex items-center gap-2">
             <span className="w-2.5 h-6 bg-red-600 rounded-sm"></span>
             <h2 className="text-xl font-bold text-gray-900">সর্বাধিক পঠিত</h2>
           </div>
+
+            <MostRead></MostRead>
+
         </div>
       </div>
     </div>
