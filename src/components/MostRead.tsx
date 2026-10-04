@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 type MostReadNews = {
   id: string;
@@ -16,8 +17,9 @@ const MostRead = async () => {
   return (
     <div className="flex flex-col divide-y divide-gray-100">
       {news?.map((n, i: number) => (
-        <div
+        <Link
           key={n.id}
+          href={`/news-deatils/${n.id}`}
           className="flex items-start gap-4 py-3 group cursor-pointer transition-colors duration-200 hover:bg-gray-50/80 px-2 rounded-md"
         >
           <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-red-50 text-red-600 font-extrabold text-sm border border-red-100 group-hover:bg-red-600 group-hover:text-white transition-colors">
@@ -27,7 +29,7 @@ const MostRead = async () => {
           <h3 className="text-sm font-semibold text-gray-800 group-hover:text-red-600 line-clamp-2 leading-snug transition-colors">
             {n.title}
           </h3>
-        </div>
+        </Link>
       ))}
     </div>
   );

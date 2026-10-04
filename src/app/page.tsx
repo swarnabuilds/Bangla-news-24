@@ -65,7 +65,6 @@ export default async function Home() {
         {/* most read section */}
         <div className="lg:col-span-1 bg-white rounded-lg shadow-sm border border-gray-100 p-6 h-fit">
           <div className="border-b-2 border-red-600 pb-2 mb-6 w-full flex items-center gap-2">
-            <span className="w-2.5 h-6 bg-red-600 rounded-sm"></span>
             <h2 className="text-xl font-bold text-gray-900">সর্বাধিক পঠিত</h2>
           </div>
 
