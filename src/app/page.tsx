@@ -31,7 +31,6 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      <Marquee />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 container mx-auto py-6 px-4">
         {/* news section */}
