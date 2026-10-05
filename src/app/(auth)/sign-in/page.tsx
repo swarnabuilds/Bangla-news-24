@@ -32,13 +32,21 @@ export default function SignInPage() {
     }
   };
 
-  const hndelSignInWithGoogle = async () => {
+  const handleSignInWithGoogle = async () => {
     const data = await signIn.social({
       provider: "google",
       callbackURL: "/",
     });
     console.log(data)
   };
+
+  const handleSignInWithGithub = async() =>{
+     const data = await signIn.social({
+        provider: "github",
+      callbackURL: "/",
+    })
+    console.log(data)
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -98,13 +106,20 @@ export default function SignInPage() {
           </span>
         </div>
 
-        {/* আইকন ছাড়া গুগল সাইন ইন বাটন */}
         <Button
           type="button"
-          onClick={hndelSignInWithGoogle}
+          onClick={handleSignInWithGoogle}
           className="w-full border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2 rounded-xl transition-colors"
         >
           Google দিয়ে সাইন ইন করুন
+        </Button>
+
+        <Button
+          type="button"
+          onClick={handleSignInWithGithub}
+          className="mt-4 w-full border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2 rounded-xl transition-colors"
+        >
+          Github দিয়ে সাইন ইন করুন
         </Button>
       </div>
     </div>
