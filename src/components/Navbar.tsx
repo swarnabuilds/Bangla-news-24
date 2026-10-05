@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from '@/asset/logo.webp'
 import NavLinks from "./NavLinks";
+import UserInfo from "./UserInfo";
 
 const Navbar = () => {
     const banglaDate = new Date().toLocaleDateString("bn-BD", {
@@ -35,16 +36,8 @@ const Navbar = () => {
             </p>
           </div>
         </div>
-          <div className="flex items-center gap-3">
-          <button className="text-sm font-medium text-gray-700 hover:text-black">
-            সাইন ইন
-          </button>
-          <button className="btn btn-sm bg-red-700 hover:bg-red-800 text-white border-none rounded-md px-4">
-            সাইন আপ
-          </button>
-        </div>
-
-       
+          
+       <UserInfo></UserInfo>
 
       </div>
      <NavLinks></NavLinks> 
