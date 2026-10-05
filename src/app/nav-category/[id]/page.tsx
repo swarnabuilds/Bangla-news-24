@@ -1,4 +1,5 @@
 import NewsCard from "@/components/NewsCard";
+import { notFound } from "next/navigation";
 
 interface INews {
   id: string;
@@ -20,6 +21,10 @@ const CategoryPage = async ({
   const data = await res.json();
 
   const category: INews[] = data.data || [];
+
+   if (!category) {
+     notFound() 
+    }
 
   return (
     <div className="container mx-auto py-8 px-4">

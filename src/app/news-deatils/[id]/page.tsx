@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 const NewsDetailsPage = async ({
   params,
@@ -7,30 +8,23 @@ const NewsDetailsPage = async ({
 }) => {
   const { id } = await params;
 
-  // 🔴 আপনার দেয়া API Endpoint: /api/article/${id}
   const res = await fetch(`https://news-api-v2.vercel.app/api/article/${id}`, {
     cache: "no-store",
   });
 
-  if (!res.ok) {
-    return (
-      <div className="max-w-4xl mx-auto py-12 text-center text-red-500 font-bold">
-        নিউজটি পাওয়া যায়নি! (Status: {res.status})
-      </div>
-    );
+ if (!res.ok) {
+    notFound();
   }
 
   const jsonResponse = await res.json();
-  
-  // API response যদি { data: { ... } } অথবা সরাসরি { title: ... } হয় - দুটিই হ্যান্ডেল করা হলো
+  if(!jsonResponse){
+    notFound()
+  }
+ 
   const news = jsonResponse?.data || jsonResponse;
 
-  if (!news || (!news.title && !news.text)) {
-    return (
-      <div className="max-w-4xl mx-auto py-12 text-center text-red-500 font-bold">
-        কোনো ডাটা পাওয়া যায়নি!
-      </div>
-    );
+  if (!news) {
+   notFound() 
   }
 
   return (
