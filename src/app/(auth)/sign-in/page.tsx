@@ -23,13 +23,21 @@ export default function SignInPage() {
     console.log(resData, error);
 
     if (resData) {
-      toast.success('সফলভাবে সাইন ইন হয়েছে!')
+      toast.success('সফলভাবে সাইন ইন হয়েছে!');
       router.push("/");
     }
     if (error) {
       toast.error("সাইন ইন ব্যর্থ হয়েছে!");
       return;
     }
+  };
+
+  const hndelSignInWithGoogle = async () => {
+    const data = await signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+    console.log(data)
   };
 
   return (
@@ -81,6 +89,23 @@ export default function SignInPage() {
             সাইন ইন
           </Button>
         </Form>
+
+        {/* 'অথবা' ডিভাইডার */}
+        <div className="relative my-6 flex items-center justify-center">
+          <div className="w-full border-t border-gray-200"></div>
+          <span className="absolute bg-white px-3 text-xs font-medium text-gray-500 uppercase">
+            অথবা
+          </span>
+        </div>
+
+        {/* আইকন ছাড়া গুগল সাইন ইন বাটন */}
+        <Button
+          type="button"
+          onClick={hndelSignInWithGoogle}
+          className="w-full border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2 rounded-xl transition-colors"
+        >
+          Google দিয়ে সাইন ইন করুন
+        </Button>
       </div>
     </div>
   );
