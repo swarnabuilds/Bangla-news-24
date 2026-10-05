@@ -27,15 +27,18 @@ const UserInfo = () => {
       {session?.user ? (
         <div className="flex items-center gap-3">
           <div>
+           
+           <Link href={'/profile'}>
             <div className="avatar">
             <div className="w-10 rounded-full border border-gray-200">
               <img
-                alt={session.user.name || "User Avatar"}
-                src={session.user.image || "/default-avatar.png"}
+                alt={session?.user?.name || "User Avatar"}
+                src={session?.user?.image || "/default-avatar.png"}
               />
             </div>
           </div>
-          <h2 className="text-sm font-semibold mt-2">{session.user.name}</h2>
+           </Link>
+          <h2 className="text-sm font-semibold mt-2">{session?.user?.name}</h2>
           </div>
           <button
             onClick={handleSignOut}
