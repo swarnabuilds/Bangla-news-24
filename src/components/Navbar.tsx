@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from '@/asset/logo.webp'
 import NavLinks from "./NavLinks";
 import UserInfo from "./UserInfo";
+import Link from "next/link";
 
 const Navbar = () => {
     const banglaDate = new Date().toLocaleDateString("bn-BD", {
@@ -16,7 +17,8 @@ const Navbar = () => {
         <div className="hidden md:block w-28"></div>
         {/* Center Side: Logo Image & Dynamic Date */}
         <div className="flex items-center gap-3">
-          <div className="relative w-12 h-12">
+         <Link href={'/'}>
+           <div className="relative w-12 h-12">
             <Image
               src= {logo}
               alt="Bangla News 24 Logo"
@@ -26,6 +28,7 @@ const Navbar = () => {
               priority
             />
           </div>
+         </Link>
 
           <div>
             <h1 className="text-2xl font-bold text-red-700 leading-tight">
